@@ -1,7 +1,7 @@
 package com.bajaj.bookmyplace.filters;
 
-import com.springsecuritylearn.jwtdemo.services.JWTService;
-import com.springsecuritylearn.jwtdemo.services.UserService;
+import com.bajaj.bookmyplace.services.JWTService;
+import com.bajaj.bookmyplace.services.UserService;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

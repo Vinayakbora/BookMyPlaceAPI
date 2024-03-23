@@ -20,7 +20,7 @@ public class UserService implements UserDetailsService {
     private PasswordEncoder passwordEncoder;
 
     @Autowired
-    UserRepository userRepository;
+    private UserRepository userRepository;
     public User createUser(User user){
         user.setPassword(passwordEncoder.encode(user.getPassword()));
        User userCreated =  userRepository.save(user);

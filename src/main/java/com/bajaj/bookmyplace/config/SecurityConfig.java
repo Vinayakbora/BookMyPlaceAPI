@@ -1,7 +1,7 @@
 package com.bajaj.bookmyplace.config;
 
-import com.springsecuritylearn.jwtdemo.filters.JWTFilter;
-import com.springsecuritylearn.jwtdemo.services.UserService;
+import com.bajaj.bookmyplace.filters.JWTFilter;
+import com.bajaj.bookmyplace.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

@@ -29,7 +29,7 @@ public class MeetingRoomController {
     }
 
     @PostMapping("/by-location")
-    public ResponseEntity<Object> getMeetingRoomsByLocation(Location location){
+    public ResponseEntity<Object> getMeetingRoomsByLocation(@RequestBody Location location){
         List<MeetingRoom> meetingRooms = meetingRoomService.getAllMeetingRoomsByLocation(location);
         return new ResponseController().generateResponse("Meeting Room Found ", HttpStatus.OK,meetingRooms);
     }

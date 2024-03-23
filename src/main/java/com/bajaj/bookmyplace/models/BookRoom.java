@@ -11,17 +11,19 @@ public class BookRoom {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
     @Column(nullable = false)
+    private Long id;
+
 
     @ManyToOne
     @JoinColumn(name = "meeting_room_id")
     private MeetingRoom meetingRoom;
 
-    @ManyToOne
-    @JoinColumn(name = "user_id")
-    private User user;
 
+    @Column( nullable = false)
+    private String userEmail;
+
+    @Column( nullable = false)
     private String timeSlot;
 
     @Column(name = "booking_date", nullable = false)
@@ -35,10 +37,10 @@ public class BookRoom {
 
     }
 
-    public BookRoom(Long id, MeetingRoom meetingRoom, User user, String timeSlot, Date bookingDate, Date timestamp) {
+    public BookRoom(Long id, MeetingRoom meetingRoom, String userEmail, String timeSlot, Date bookingDate, Date timestamp) {
         this.id = id;
         this.meetingRoom = meetingRoom;
-        this.user = user;
+        this.userEmail = userEmail;
         this.timeSlot = timeSlot;
         this.bookingDate = bookingDate;
         this.timestamp = timestamp;
@@ -60,12 +62,12 @@ public class BookRoom {
         this.meetingRoom = meetingRoom;
     }
 
-    public User getUser() {
-        return user;
+    public String getUserEmail() {
+        return userEmail;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUser(String userEmail) {
+        this.userEmail = userEmail;
     }
 
     public String getTimeSlot() {
