@@ -59,11 +59,11 @@ public class ConferenceBookingService {
     }
 
 
-    public List<MeetingRoom> getAllMeetingRoomsByLocation(Location location){
-        Optional <List<MeetingRoom>> meetingRoomsOptional =  meetingRoomRepository.findMeetingRoomsByName(location.getName());
-        if (meetingRoomsOptional.isEmpty()){
-            throw new CommonException("No Room found for provided location ");
-        }
-        return meetingRoomsOptional.get();
-    }
+//    public List<MeetingRoom> getAllMeetingRoomsByLocation(Location location){
+//        Optional <List<MeetingRoom>> meetingRoomsOptional =  meetingRoomRepository.findByLocation(location);
+//        if (meetingRoomsOptional.isEmpty()){
+//            throw new CommonException("No Room found for provided location ");
+//        }
+//        return meetingRoomsOptional.get();
+//    }
 }

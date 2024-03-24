@@ -32,13 +32,19 @@ public class MeetingRoomService {
     }
 
 
-    public List<MeetingRoom> getAllMeetingRoomsByLocation(Location location){
+    public List<MeetingRoom> getMeetingRoomsByLocation(Long locationId) {
+        Location location = new Location();
+        location.setId(locationId); // Assuming you have a method to fetch location by ID
+        return meetingRoomRepository.findByLocation(location);
+    }
+
+    public List<MeetingRoom> getAllMeetingRooms(){
 
 
-       Optional <List<MeetingRoom>> meetingRoomsOptional =  meetingRoomRepository.findMeetingRoomsByName(location.getName());
-        if (meetingRoomsOptional.isEmpty()){
-            throw new CommonException("No Room found for provided location ");
+        List<MeetingRoom> meetingRooms =  meetingRoomRepository.findAll();
+        if (meetingRooms.isEmpty()){
+            throw new CommonException("No Rooms found");
         }
-        return meetingRoomsOptional.get();
+        return meetingRooms;
     }
 }

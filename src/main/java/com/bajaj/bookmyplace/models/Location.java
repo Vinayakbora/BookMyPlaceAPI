@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;
 
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "locations")
@@ -26,6 +27,9 @@ public class Location {
     @Column(name = "timestamp", nullable = false, updatable = false)
     @CreationTimestamp
     private Date timestamp;
+
+    @OneToMany(mappedBy = "location", cascade = CascadeType.ALL)
+    private List<MeetingRoom> meetingRooms;
 
 
     public Long getId() {
@@ -60,9 +64,19 @@ public class Location {
         this.timestamp = timestamp;
     }
 
-    public Location(Long id, String city, Date timestamp) {
+    public List<MeetingRoom> getMeetingRooms() {
+        return meetingRooms;
+    }
+
+    public void setMeetingRooms(List<MeetingRoom> meetingRooms) {
+        this.meetingRooms = meetingRooms;
+    }
+
+    public Location(Long id, String city, String name, Date timestamp, List<MeetingRoom> meetingRooms) {
         this.id = id;
         this.city = city;
+        this.name = name;
         this.timestamp = timestamp;
+        this.meetingRooms = meetingRooms;
     }
 }

@@ -10,5 +10,5 @@ import java.util.Optional;
 
 public interface MeetingRoomRepository extends JpaRepository<MeetingRoom, Long> {
 
-   public Optional<List<MeetingRoom>> findMeetingRoomsByName(String name);
+   List<MeetingRoom> findByLocation(Location location);
 }
