@@ -1,13 +1,16 @@
 package com.bajaj.bookmyplace.models;
 
+import com.bajaj.bookmyplace.config.DateDeSerializer;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import jakarta.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;
 
 import java.util.Date;
 
 @Entity
-@Table(name = "bookrooms")
-public class BookRoom {
+@Table(name = "bookings")
+public class ConferenceBooking {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,17 +30,17 @@ public class BookRoom {
     private String timeSlot;
 
     @Column(name = "booking_date", nullable = false)
-    private Date bookingDate;
+    private String bookingDate;
 
     @Column(name = "timestamp", nullable = false, updatable = false)
     @CreationTimestamp
     private Date timestamp;
 
-    public BookRoom() {
+    public ConferenceBooking() {
 
     }
 
-    public BookRoom(Long id, MeetingRoom meetingRoom, String userEmail, String timeSlot, Date bookingDate, Date timestamp) {
+    public ConferenceBooking(Long id, MeetingRoom meetingRoom, String userEmail, String timeSlot, String bookingDate, Date timestamp) {
         this.id = id;
         this.meetingRoom = meetingRoom;
         this.userEmail = userEmail;
@@ -78,11 +81,11 @@ public class BookRoom {
         this.timeSlot = timeSlot;
     }
 
-    public Date getBookingDate() {
+    public String getBookingDate() {
         return bookingDate;
     }
 
-    public void setBookingDate(Date bookingDate) {
+    public void setBookingDate(String bookingDate) {
         this.bookingDate = bookingDate;
     }
 
