@@ -35,4 +35,12 @@ public class UserService implements UserDetailsService {
         }
         return new CustomUserDetails(userOptional.get());
     }
+
+    public User getUserBuUsername(String username) throws UsernameNotFoundException {
+        Optional<User> userOptional = userRepository.findByUsername(username);
+        if (userOptional.isEmpty()){
+            throw new UsernameNotFoundException("User Doesnt Exist!!");
+        }
+        return userOptional.get();
+    }
 }
