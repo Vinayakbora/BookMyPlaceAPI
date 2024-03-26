@@ -10,5 +10,5 @@ import java.util.Optional;
 public interface ConferenceBookingRepository extends JpaRepository<ConferenceBooking, Long> {
 
     public Optional<List<ConferenceBooking>> findBookRoomsByUserEmail(String userEmail);
-    public Optional<ConferenceBooking> findBookRoomsByBookingDateAndTimeSlot(String bookingDate, String timeSlot);
+    public Optional<ConferenceBooking> findBookRoomsByBookingDate(String bookingDate);
 }

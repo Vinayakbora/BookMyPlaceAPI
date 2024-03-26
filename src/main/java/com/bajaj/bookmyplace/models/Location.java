@@ -28,10 +28,6 @@ public class Location {
     @CreationTimestamp
     private Date timestamp;
 
-    @OneToMany(mappedBy = "location", cascade = CascadeType.ALL)
-    private List<MeetingRoom> meetingRooms;
-
-
     public Long getId() {
         return id;
     }
@@ -64,19 +60,15 @@ public class Location {
         this.timestamp = timestamp;
     }
 
-    public List<MeetingRoom> getMeetingRooms() {
-        return meetingRooms;
-    }
 
-    public void setMeetingRooms(List<MeetingRoom> meetingRooms) {
-        this.meetingRooms = meetingRooms;
-    }
 
-    public Location(Long id, String city, String name, Date timestamp, List<MeetingRoom> meetingRooms) {
+
+
+    public Location(Long id, String city, String name, Date timestamp) {
         this.id = id;
         this.city = city;
         this.name = name;
         this.timestamp = timestamp;
-        this.meetingRooms = meetingRooms;
+
     }
 }

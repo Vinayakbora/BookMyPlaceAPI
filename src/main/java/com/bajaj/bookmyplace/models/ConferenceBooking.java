@@ -27,7 +27,10 @@ public class ConferenceBooking {
     private String userEmail;
 
     @Column( nullable = false)
-    private String timeSlot;
+    private String startTime;
+
+    @Column( nullable = false)
+    private String endTime;
 
     @Column(name = "booking_date", nullable = false)
     private String bookingDate;
@@ -40,11 +43,12 @@ public class ConferenceBooking {
 
     }
 
-    public ConferenceBooking(Long id, MeetingRoom meetingRoom, String userEmail, String timeSlot, String bookingDate, Date timestamp) {
+    public ConferenceBooking(Long id, MeetingRoom meetingRoom, String userEmail, String startTime, String endTime, String bookingDate, Date timestamp) {
         this.id = id;
         this.meetingRoom = meetingRoom;
         this.userEmail = userEmail;
-        this.timeSlot = timeSlot;
+        this.startTime = startTime;
+        this.endTime = endTime;
         this.bookingDate = bookingDate;
         this.timestamp = timestamp;
     }
@@ -69,16 +73,24 @@ public class ConferenceBooking {
         return userEmail;
     }
 
-    public void setUser(String userEmail) {
+    public void setUserEmail(String userEmail) {
         this.userEmail = userEmail;
     }
 
-    public String getTimeSlot() {
-        return timeSlot;
+    public String getStartTime() {
+        return startTime;
     }
 
-    public void setTimeSlot(String timeSlot) {
-        this.timeSlot = timeSlot;
+    public void setStartTime(String startTime) {
+        this.startTime = startTime;
+    }
+
+    public String getEndTime() {
+        return endTime;
+    }
+
+    public void setEndTime(String endTime) {
+        this.endTime = endTime;
     }
 
     public String getBookingDate() {
