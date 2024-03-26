@@ -29,7 +29,7 @@ public class ConferenceBookingService {
     public ConferenceBooking createBookRoom(ConferenceBooking conferenceBookingNew)  {
 
 
-        Optional<ConferenceBooking> conferenceBookingExisting =  conferenceBookingRepository.findBookRoomsByBookingDate(conferenceBookingNew.getBookingDate());
+        Optional<ConferenceBooking> conferenceBookingExisting =  conferenceBookingRepository.findBookRoomsByBookingDateAndMeetingRoom(conferenceBookingNew.getBookingDate(),conferenceBookingNew.getMeetingRoom());
 
         if (conferenceBookingExisting.isEmpty()) {
 
@@ -131,13 +131,13 @@ public class ConferenceBookingService {
         return bookRooms.get();
     }
 
-    public ConferenceBooking getBookRoomByDateAndTimeSlot(String bookingDate, String timeSlot){
-        Optional<ConferenceBooking> bookRoom =  conferenceBookingRepository.findBookRoomsByBookingDate(bookingDate);
-        if (bookRoom.isEmpty()) {
-            throw new CommonException("No Booking found for provided timeslot and date ");
-        }
-        return bookRoom.get();
-    }
+//    public ConferenceBooking getBookRoomByDateAndTimeSlot(String bookingDate, String timeSlot){
+//        Optional<ConferenceBooking> bookRoom =  conferenceBookingRepository.findBookRoomsByBookingDateAndMeetingRoom(bookingDate);
+//        if (bookRoom.isEmpty()) {
+//            throw new CommonException("No Booking found for provided timeslot and date ");
+//        }
+//        return bookRoom.get();
+//    }
 
 
     public List<ConferenceBooking> getAllBookings(){
