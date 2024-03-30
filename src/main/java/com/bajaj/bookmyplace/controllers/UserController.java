@@ -24,19 +24,19 @@ public class UserController {
     @Autowired
     private JWTService jwtService;
 
-    @GetMapping("/")
+    @GetMapping("/test")
     public String get(){
         return "Endpoint working";
     }
 
-    @PostMapping("/")
+    @PostMapping("/register")
 
     public User create(@RequestBody User user){
      return  userService.createUser(user);
 
     }
 
-    @PostMapping("/login/")
+    @PostMapping("/login")
 
     public LoginResponse login(@RequestBody AuthRequest request) {
 
